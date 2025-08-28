@@ -16,13 +16,14 @@ type Props = {
 export default async function NotesPage({ params }: Props) {
   const { slug } = await params;
   const tag = slug.length > 0 ? (slug[0] as Tag) : noteTags[0];
-  // console.log("slug", slug);
 
   const queryClient = new QueryClient();
 
+  const fetchParams = tag ? { page: 1, search: "", tag: tag } : { page: 1, search: "" };
+
   await queryClient.prefetchQuery({
-    queryKey: ["notes", { page: 1, search: "", tag: tag }],
-    queryFn: () => fetchNotes({ page: 1, search: "", tag: tag }),
+    queryKey: ["notes", fetchParams],
+    queryFn: () => fetchNotes(fetchParams),
   });
 
   return (

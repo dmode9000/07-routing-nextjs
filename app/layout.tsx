@@ -8,7 +8,6 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import { Geist, Geist_Mono } from "next/font/google";
 import "modern-normalize/modern-normalize.css";
 import "./globals.css";
-import SidebarNotes from "./notes/filter/@sidebar/default";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

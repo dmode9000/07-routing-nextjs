@@ -16,6 +16,7 @@ interface ModalProps {
 export default function Modal({ children, onClose }: ModalProps) {
   const router = useRouter();
   const closeModal = onClose ? onClose : () => router.back();
+
   useEffect(() => {
     // closing the modal with the Escape key
     const handleEscape = (event: KeyboardEvent) => {
