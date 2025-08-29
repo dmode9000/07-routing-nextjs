@@ -27,7 +27,7 @@ export default function Modal({ children, onClose }: ModalProps) {
     return () => {
       document.removeEventListener("keydown", handleEscape);
     };
-  }, []);
+  }, [closeModal]);
 
   // closing the modal by clicking on the backdrop
   const handleBackdropClick = (event: MouseEvent) => {
