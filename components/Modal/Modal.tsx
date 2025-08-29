@@ -2,7 +2,7 @@
 // Next
 import { useRouter } from "next/navigation";
 // React
-import { useEffect, type ReactNode, type MouseEvent, useMemo, useCallback } from "react";
+import { useEffect, type ReactNode, type MouseEvent, useCallback } from "react";
 import { createPortal } from "react-dom";
 // Styles
 import css from "./Modal.module.css";
