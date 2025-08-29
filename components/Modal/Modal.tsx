@@ -2,7 +2,7 @@
 // Next
 import { useRouter } from "next/navigation";
 // React
-import { useEffect, type ReactNode, type MouseEvent } from "react";
+import { useEffect, type ReactNode, type MouseEvent, useMemo, useCallback } from "react";
 import { createPortal } from "react-dom";
 // Styles
 import css from "./Modal.module.css";
@@ -15,7 +15,13 @@ interface ModalProps {
 // Client component
 export default function Modal({ children, onClose }: ModalProps) {
   const router = useRouter();
-  const closeModal = onClose ? onClose : () => router.back();
+  const closeModal = useCallback(() => {
+    if (onClose) {
+      onClose();
+    } else {
+      router.back();
+    }
+  }, [router, onClose]);
 
   useEffect(() => {
     // closing the modal with the Escape key
