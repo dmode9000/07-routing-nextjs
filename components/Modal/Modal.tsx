@@ -42,7 +42,14 @@ export default function Modal({ children, onClose }: ModalProps) {
 
   return createPortal(
     <div className={css.backdrop} role="dialog" aria-modal="true" onClick={handleBackdropClick}>
-      <div className={css.modal}>{children}</div>
+      <div className={css.modal}>
+        {closeModal && (
+          <button className={css.closeButton} onClick={closeModal} aria-label="Close modal">
+            ✕
+          </button>
+        )}
+        {children}
+      </div>
     </div>,
     document.body
   );
